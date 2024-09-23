@@ -1,0 +1,21 @@
+# ninja log v5
+2	25301	7484634123135034	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	fcf7d46321989ae2
+22465	26292	7484634288503790	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	46fd9d01a3664947
+17344	25369	7484634253698301	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	10179ebbdd8a6ebb
+3512	25313	7484634128006456	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	2b830f2bee903752
+19840	25812	7484634283106039	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	62f4bb4e16439c4f
+7764	25317	7484634157816739	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	aed2d5ecaeff7214
+9907	25329	7484634187082241	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	480dc9cc96e4b501
+12701	25347	7484634201624976	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	83671cddde7194d2
+14875	25365	7484634223340989	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ee0324113ffd5310
+13	17914	7484647951469859	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	83671cddde7194d2
+2442	17917	7484647966562824	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	2b830f2bee903752
+4463	17919	7484647988199785	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	aed2d5ecaeff7214
+6766	17921	7484648013235069	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	fcf7d46321989ae2
+8335	17923	7484648021087267	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	62f4bb4e16439c4f
+10062	17925	7484648038450194	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ee0324113ffd5310
+12178	17927	7484648066732305	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	480dc9cc96e4b501
+13981	18224	7484648079942695	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	10179ebbdd8a6ebb
+15807	18405	7484648081801667	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	46fd9d01a3664947
+18225	22112	7484648118626772	D:/Tilemap/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2a575s5u/obj/armeabi-v7a/libgame.so	b4dfd488e676da12
+18406	23659	7484648134060567	D:/Tilemap/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/2a575s5u/obj/armeabi-v7a/libswappywrapper.so	ef67d19b44401d74

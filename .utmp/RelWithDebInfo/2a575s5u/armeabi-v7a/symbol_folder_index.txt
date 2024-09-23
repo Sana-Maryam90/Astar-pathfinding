@@ -1,0 +1,1 @@
+D:\Tilemap\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\2a575s5u\obj\armeabi-v7a
