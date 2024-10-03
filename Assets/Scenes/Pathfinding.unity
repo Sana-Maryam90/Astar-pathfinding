@@ -498,6 +498,7 @@ MonoBehaviour:
   tilemap: {fileID: 1492516832}
   tile: {fileID: 11400000, guid: 88792bd244230684ba99d9c919136781, type: 2}
   obstacleTile: {fileID: 11400000, guid: 934f5e65a593cd942a2f6f2b1ec5966c, type: 2}
+  pathTile: {fileID: 11400000, guid: ef5c7549fd3756c4693967decf821bf2, type: 2}
   gridWidth: 18
   gridHeight: 10
 --- !u!1660057539 &9223372036854775807

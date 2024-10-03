@@ -132,6 +132,24 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LeftClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""facd5e04-cc96-4a64-b0e7-47b0532cfca6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftClickPosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""a79d8edc-eab9-490d-a9a7-49ec72a8ec12"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -154,6 +172,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RightClickPosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8053b837-2011-4dbf-b18a-a3284104aa6f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a739125a-fa40-4bae-9aed-59afe93e448d"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftClickPosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -195,6 +235,8 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Pathfinding = asset.FindActionMap("Pathfinding", throwIfNotFound: true);
         m_Pathfinding_RightClick = m_Pathfinding.FindAction("RightClick", throwIfNotFound: true);
         m_Pathfinding_RightClickPosition = m_Pathfinding.FindAction("RightClickPosition", throwIfNotFound: true);
+        m_Pathfinding_LeftClick = m_Pathfinding.FindAction("LeftClick", throwIfNotFound: true);
+        m_Pathfinding_LeftClickPosition = m_Pathfinding.FindAction("LeftClickPosition", throwIfNotFound: true);
     }
 
     ~@InputMaster()
@@ -334,12 +376,16 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private List<IPathfindingActions> m_PathfindingActionsCallbackInterfaces = new List<IPathfindingActions>();
     private readonly InputAction m_Pathfinding_RightClick;
     private readonly InputAction m_Pathfinding_RightClickPosition;
+    private readonly InputAction m_Pathfinding_LeftClick;
+    private readonly InputAction m_Pathfinding_LeftClickPosition;
     public struct PathfindingActions
     {
         private @InputMaster m_Wrapper;
         public PathfindingActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
         public InputAction @RightClick => m_Wrapper.m_Pathfinding_RightClick;
         public InputAction @RightClickPosition => m_Wrapper.m_Pathfinding_RightClickPosition;
+        public InputAction @LeftClick => m_Wrapper.m_Pathfinding_LeftClick;
+        public InputAction @LeftClickPosition => m_Wrapper.m_Pathfinding_LeftClickPosition;
         public InputActionMap Get() { return m_Wrapper.m_Pathfinding; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -355,6 +401,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @RightClickPosition.started += instance.OnRightClickPosition;
             @RightClickPosition.performed += instance.OnRightClickPosition;
             @RightClickPosition.canceled += instance.OnRightClickPosition;
+            @LeftClick.started += instance.OnLeftClick;
+            @LeftClick.performed += instance.OnLeftClick;
+            @LeftClick.canceled += instance.OnLeftClick;
+            @LeftClickPosition.started += instance.OnLeftClickPosition;
+            @LeftClickPosition.performed += instance.OnLeftClickPosition;
+            @LeftClickPosition.canceled += instance.OnLeftClickPosition;
         }
 
         private void UnregisterCallbacks(IPathfindingActions instance)
@@ -365,6 +417,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @RightClickPosition.started -= instance.OnRightClickPosition;
             @RightClickPosition.performed -= instance.OnRightClickPosition;
             @RightClickPosition.canceled -= instance.OnRightClickPosition;
+            @LeftClick.started -= instance.OnLeftClick;
+            @LeftClick.performed -= instance.OnLeftClick;
+            @LeftClick.canceled -= instance.OnLeftClick;
+            @LeftClickPosition.started -= instance.OnLeftClickPosition;
+            @LeftClickPosition.performed -= instance.OnLeftClickPosition;
+            @LeftClickPosition.canceled -= instance.OnLeftClickPosition;
         }
 
         public void RemoveCallbacks(IPathfindingActions instance)
@@ -411,5 +469,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     {
         void OnRightClick(InputAction.CallbackContext context);
         void OnRightClickPosition(InputAction.CallbackContext context);
+        void OnLeftClick(InputAction.CallbackContext context);
+        void OnLeftClickPosition(InputAction.CallbackContext context);
     }
 }
