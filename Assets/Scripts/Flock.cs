@@ -6,7 +6,9 @@ public class Flock : MonoBehaviour
     float rotationSpeed = 4.0f;
     Vector3 averageHeading;
     Vector3 averagePosition;
-    float neighbourDistance = 2.0f;
+    float neighbourDistance = 3.0f;
+
+    bool turning = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,8 +18,30 @@ public class Flock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Random.Range(0, 5) < 1) ApplyRules();
-       transform.Translate(0, Time.deltaTime * speed, 0); 
+        if (Vector3.Distance(transform.position, Vector3.zero) >= GlobalFlock.tanksize)
+        {
+            turning = true;
+        }
+        else
+        {
+            turning = false;
+        }
+        if (turning)
+        {
+            Vector3 direction = Vector3.zero - transform.position;
+            //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angle), rotationSpeed * Time.deltaTime);
+
+            speed = Random.Range(0.5f, 1);
+        }
+        else
+        {
+            if (Random.Range(0, 5) < 1) ApplyRules();
+        }
+        //transform.Translate(0, Time.deltaTime * speed, 0); 
+        transform.Translate(Vector3.up * Time.deltaTime * speed);
+
     }
 
     void ApplyRules()
@@ -62,7 +86,10 @@ public class Flock : MonoBehaviour
             Vector3 direction = (vcentre + vavoid) - transform.position;
             if(direction != Vector3.zero)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+                //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angle), rotationSpeed * Time.deltaTime);
+
             }
         }
     }
